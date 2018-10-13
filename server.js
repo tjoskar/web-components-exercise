@@ -2,7 +2,7 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
-const getFilePath = url => (url === '/' ? './index.html' : '.' + request.url)
+const getFilePath = url => (url === '/' ? './index.html' : '.' + url)
 const getContentType = extname => {
   switch (extname) {
     case '.html':
