@@ -1,0 +1,20 @@
+{
+  "name": "my-nymber",
+  "version": "0.0.1",
+  "description": "My number component",
+  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve"
+  },
+  "devDependencies": {
+    "@stencil/core": "~0.13.2"
+  },
+  "license": "MIT"
+}
