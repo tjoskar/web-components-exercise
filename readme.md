@@ -1,15 +1,3 @@
-- Sätt upp server?
-- basic
-  - enkel hello world
-    - vad är open/closed
-  - en enkel knapp
-    - cb: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#Using_the_lifecycle_callbacks
-  - ett inputfält
-  - ett inputfält, där texten skrivs ut under inputfället
-- Todo app i native WC
-- Todo app med Lit-Html
-- Todo med stenciljs / hybrids / polymer
-
 ## Setup
 
 Även om det räcker med att dubbelklicka på `index.html` för öppna sidan i din webbläsare så rekommenderar jag dig till att ha en lokal server.
