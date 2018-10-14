@@ -1,11 +1,4 @@
-const template = document.createElement('template')
-template.innerHTML = `
-    <h1>Todos</h1>
-    <section>
-        <todo-input></todo-input>
-        <ul></ul>
-    </section>
-`
+import { html, render } from 'https://unpkg.com/lit-html?module'
 
 export class TodoApp extends HTMLElement {
   constructor() {
@@ -28,10 +21,6 @@ export class TodoApp extends HTMLElement {
   }
 
   connectedCallback() {
-    this.root.appendChild(template.content.cloneNode(true))
-    this.inputNode = this.root.querySelector('todo-input')
-    this.todoListNode = this.root.querySelector('ul')
-    this.inputNode.addEventListener('onNewTodo', e => this.addItem(e))
     this.render()
   }
 
@@ -55,27 +44,20 @@ export class TodoApp extends HTMLElement {
     this.render()
   }
 
-  render() {
-    const todoItemNodes = Array.from(this.todoListNode.childNodes)
-    this.items.forEach(item => {
-      const itemNode = todoItemNodes.find(i => Number(i.uid) === item.uid)
+  generateTodoItem({ uid, name, checked }) {
+    return html`<todo-item name=${name} uid=${uid} ?checked=${checked} @onCheckedChange=${e => this.changeChecked(e)}></todo-item>`
+  }
 
-      if (!itemNode) {
-        const newItemNode = document.createElement('todo-item')
-        newItemNode.setAttribute('name', item.name)
-        newItemNode.setAttribute('uid', item.uid)
-        if (item.checked) {
-          newItemNode.setAttribute('checked', item.checked)
-        }
-        newItemNode.addEventListener('onCheckedChange', e => this.changeChecked(e))
-        this.todoListNode.appendChild(newItemNode)
-      } else if (item.checked !== Boolean(itemNode.checked)) {
-        if (item.checked) {
-          itemNode.setAttribute('checked', true)
-        } else {
-          itemNode.removeAttribute('checked')
-        }
-      }
-    })
+  render() {
+    const doc = html`
+      <h1>Todos</h1>
+      <section>
+        <todo-input @onNewTodo=${e => this.addItem(e)}></todo-input>
+        <ul>
+          ${this.items.map(item => this.generateTodoItem(item))}
+        </ul>
+      </section>
+    `
+    render(doc, this.root)
   }
 }
