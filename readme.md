@@ -523,6 +523,12 @@ Skriv även om `todo-item.js` till att använda `lit-html`.
 
 Om man gillar jsx skulle man exempelvis kunna använda snabbdom (https://github.com/snabbdom/snabbdom) istället som är ett ganska litet bibliotek för att ge en Virtual DOM. 
 
+## Lösningar
+
+Om du vill se en fungerande lösning med lit-html: https://git.valtech.se/craft-circle-frontend/web-components/tree/b63190584ef743499f1613a515bcdb17e3b8674e/native-todo
+
+Och en utan lit-html: https://git.valtech.se/craft-circle-frontend/web-components/tree/ebe7c50d4b75529d8dba75cb7fee85faa5857823/native-todo
+
 ## Andra bibliotek
 
 Även om WebComponents är väldigt kraftfullt så kanske du märker att det är lite osmidigt ibland. Det har därför skapats hjälp bibliotek för att förenkla skapandet av WebComponents. Några av dem är:
